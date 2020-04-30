@@ -42,3 +42,83 @@ function mergeTrees(t1, t2) {
   return t1;
 }
 ```
+- [头条&求二叉树所有根接单到叶子路径组成的数字之和]
+```js
+// 先序遍历
+function getPathSum(root) {
+  let total = 0
+  function next(node) {
+    if (node != null) {
+      total += node.value
+      next(node.left)
+      node(node.right)
+    }
+  }
+  next(node)
+  return total
+}
+```
+- [头条&1->2,1->3输出7=(1+2)+(1+3)]
+```js
+class TreeNode {
+  constructor () {
+    this.value = undefined;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+const node = new TreeNode()
+node.value = 1;
+node.left = new TreeNode()
+node.left.value = 2
+node.right = new TreeNode();
+node.right.value = 3
+
+
+function getPathSum(node) {
+  let leftNumber = []
+  let rightNumber = []
+  let total = 0
+  function calculateLeft(node) {
+    if (node != undefined) {
+      leftNumber.push(node.value)
+      total += node.value
+      calculateLeft(node.left)
+    }
+  }
+  function calculateRight(node) {
+    if (node != undefined) {
+      rightNumber.push(node.value)
+      total += node.value
+      calculateRight(node.right)
+    }
+  }
+  calculateLeft(node)
+  calculateRight(node)
+  let result = `${total}=(${leftNumber.join('+')})+(${rightNumber.join('+')})`
+  return result
+}
+
+getPathSum(node) // return 7=(1+2) + (1+3)
+```
+
+- [头条&比较版本号](https://leetcode-cn.com/problems/compare-version-numbers/solution/bi-jiao-ban-ben-hao-by-leetcode/)
+
+```js
+function compareVersion(version1, version2) {
+  let nums1 = version1.split('.')
+  let nums2 = version2.split('.')
+  let n1 = nums1.length
+  let n2 = nums2.length
+  let max = Math.max(n1, n2)
+  for (let i = 0; i < max; i++) {
+    let i1 = i < n1 ? nums1[i] : 0
+    let i2 = i < n2 ? nums2[i] : 0
+    if (i1 != i2) {
+      return i1 > i2 ? 1 : -1
+    }
+  }
+  return 0
+}
+```
