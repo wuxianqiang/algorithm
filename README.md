@@ -58,7 +58,7 @@ function getPathSum(root) {
   return total
 }
 ```
-- [头条&而知二叉树的路径1->2,1->3需要输出7=(1+2)+(1+3)]
+- [头条&已知二叉树的路径1->2,1->3需要输出7=(1+2)+(1+3)]
 ```js
 class TreeNode {
   constructor () {
@@ -184,7 +184,7 @@ f(1)(2)(3) = 6
 f(1)...(m) = 1+...+n
 ```
 - [完美世界&实现 promise A+原理](https://github.com/wuxianqiang/blog/issues/92)
-- [完美世界&如何水平垂直居中]
+- [完美世界&如何水平垂直居中](https://github.com/wuxianqiang/blog/issues/272)
 - [完美世界&flex的属性有哪些]
 - [滴滴&谈谈对 Event Loop 理解]
 - [滴滴&webpack原理]
